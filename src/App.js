@@ -118,7 +118,7 @@ class App extends React.Component {
           <footer>All right is reserved.</footer>
         </div>
       );
-  }
+    }
 }
 
 export default App;
