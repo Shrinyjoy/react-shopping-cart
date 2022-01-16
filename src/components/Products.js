@@ -7,6 +7,7 @@ import Zoom from "react-reveal/Zoom";
 // import { connect } from "mongoose";
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
 
 class Products extends Component {
   constructor(props){
@@ -100,5 +101,5 @@ class Products extends Component {
   }
 }
 export default connect((state) => ({ products: state.products.filteredItems }), {
-  fetchProducts,
+  fetchProducts, addToCart,
 })(Products);
