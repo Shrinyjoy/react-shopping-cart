@@ -6,6 +6,9 @@ const shortid = require("shortid");
 const app = express();
 app.use(bodyParser.json());
 
+app.use("/", express.static(__dirname + "/build"));
+app.get("/", (req, res) => res.sendFile(__dirname + "/build/index.html"));
+
 // eslint-disable-next-line no-undef
 // MONGODB_URL = 'mongodb://localhost/react-shopping-cart-db';
 // const URI = process.env.MONGODB_URL;
@@ -16,7 +19,7 @@ app.use(bodyParser.json());
 // if(err) throw err;
 // console.log('Connected to MongoDB!!!')
 // });
-mongoose.connect("mongodb://localhost/react-shopping-cart-db", {
+mongoose.connect( process.env.MONGODB_URL || "mongodb://localhost/react-shopping-cart-db", {
 //   useNewUrlParser: true,
 //   useCreateIndex: true,
   useUnifiedTopology: true,
